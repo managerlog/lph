@@ -11,14 +11,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.lph.dao.DaoFactory;
-import com.lph.dao.NutricionistaDAO;
+import com.lph.database.imp.NutricionistaDAO;
 import com.lph.model.Nutricionista;
 
 @Path("nutricionistas")
@@ -26,20 +24,8 @@ public class NuntricionistaController {
 	
 	private NutricionistaDAO nDAO;
 	
-	public NuntricionistaController(DaoFactory daoFactory) {
-		this.nDAO = daoFactory.getNutricionistaDAO();
-	}
-
-	@GET
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("{id}/")
-	public Nutricionista getNutricionista(@PathParam("id") long id) {
-		try {
-			return nDAO.getNutricionistaPorId(id);
-		}catch(SQLException | ClassNotFoundException e){
-			Logger.getLogger(NuntricionistaController.class.getName()).log(Level.SEVERE, null, e);
-			throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
-		}
+	public NuntricionistaController() {
+		this.nDAO = new NutricionistaDAO(Nutricionista.class);
 	}
 
 	@GET
@@ -47,11 +33,10 @@ public class NuntricionistaController {
 	@Path("/")
 	public List<Nutricionista> getNutricionistas() {
 		try {
-			return nDAO.getNutricionistas();
+			return nDAO.listAll();
 		}catch(SQLException | ClassNotFoundException e){
 			Logger.getLogger(NuntricionistaController.class.getName()).log(Level.SEVERE, null, e);
 			throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
-			
 		}
 	}
 	
@@ -60,12 +45,11 @@ public class NuntricionistaController {
 	@Path("/")
 	public Response createNutricionista(Nutricionista n) {
 		try {
-			nDAO.create(n);
+			nDAO.save(n);
 			return Response.status(Response.Status.OK).build();
 		}catch(SQLException | ClassNotFoundException e){
 			Logger.getLogger(NuntricionistaController.class.getName()).log(Level.SEVERE, null, e);
 			throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
-			
 		}
 	}
 	
@@ -79,11 +63,11 @@ public class NuntricionistaController {
 		}catch(SQLException | ClassNotFoundException e){
 			Logger.getLogger(NuntricionistaController.class.getName()).log(Level.SEVERE, null, e);
 			throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
-			
 		}
 	}
 	
 	@DELETE
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/")
 	public Response deleteNuticionista(Nutricionista n) {
 		try {
@@ -92,7 +76,6 @@ public class NuntricionistaController {
 		}catch(SQLException | ClassNotFoundException e){
 			Logger.getLogger(NuntricionistaController.class.getName()).log(Level.SEVERE, null, e);
 			throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
-			
 		}
 	}
 
