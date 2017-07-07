@@ -1,0 +1,115 @@
+
+<form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+  <div class="form-group" [ngClass]="aplicarCssErro('nome')">
+
+    <div class="col-sm-12">
+      <label class="control-label" for="nome">Nome</label>
+    </div>
+
+    <div class="col-sm-12">
+      <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome">
+
+      <app-campo-control-erro [mostrarErro]="verifcarValidTouched('nome')" msgErro="Nome é Obrigratório">
+      </app-campo-control-erro>
+    </div>
+
+  </div>
+
+  <div class="form-group" [ngClass]="aplicarCssErro('crn')">
+
+    <div class="col-sm-12">
+      <label class="control-label" for="crn">CRN</label>
+    </div>
+
+    <div class="col-sm-12">
+      <input type="number" class="form-control" formControlName="crn" id="crn" placeholder="CRN">
+
+      <app-campo-control-erro [mostrarErro]="verifcarValidTouched('crn')" msgErro="CRN é Obrigratório">
+      </app-campo-control-erro>
+    </div>
+
+  </div>
+
+  <div formGroupName="endereco">
+
+    <div class="form-group">
+
+      <div class="col-md-3" [ngClass]="aplicarCssErro('endereco.cep')">
+        <label for="cep" class="control-label">CEP</label>
+        <input type="text" class="form-control" id="cep" formControlName="cep" (blur)="consultarCEP()">
+
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('endereco.cep')" msgErro="CEP é Obrigratório">
+        </app-campo-control-erro>
+      </div>
+
+
+      <div class="col-md-3" [ngClass]="aplicarCssErro('endereco.numero')">
+        <label for="numero" class="control-label">Número</label>
+        <input type="text" class="form-control" id="numero" formControlName="numero">
+
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('endereco.numero')" msgErro="Número é Obrigratório">
+        </app-campo-control-erro>
+      </div>
+
+      <div class="col-md-6">
+        <label for="complemento" class="control-label">Complemento</label>
+        <input type="text" class="form-control" id="complemento" formControlName="complemento">
+      </div>
+
+    </div>
+
+    <div class="form-group" [ngClass]="aplicarCssErro('endereco.logradouro')">
+
+      <div class="col-sm-12">
+        <label class="control-label" for="logradouro">Logradouro</label>
+      </div>
+
+      <div class="col-sm-12">
+        <input type="text" class="form-control" formControlName="logradouro" id="logradouro">
+
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('endereco.logradouro')" msgErro="Logradouro é Obrigratório">
+        </app-campo-control-erro>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+      <div class="col-md-5" [ngClass]="aplicarCssErro('endereco.bairro')">
+        <label for="bairro" class="control-label">Bairro</label>
+        <input type="text" class="form-control" id="bairro" formControlName="bairro">
+
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('endereco.bairro')" msgErro="Bairro é Obrigratório">
+        </app-campo-control-erro>
+      </div>
+
+
+      <div class="col-md-4" [ngClass]="aplicarCssErro('endereco.cidade')">
+        <label for="cidade" class="control-label">Cidade</label>
+        <input type="text" class="form-control" id="cidade" formControlName="cidade">
+
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('endereco.cidade')" msgErro="Cidade é Obrigratório">
+        </app-campo-control-erro>
+      </div>
+
+      <div class="col-md-3" [ngClass]="aplicarCssErro('endereco.uf')">
+        <label for="uf" class="control-label">Unidade Federativa</label>
+        <input type="text" class="form-control" id="uf" formControlName="uf">
+
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('endereco.uf')" msgErro="Unidade Federativa é Obrigratório">
+        </app-campo-control-erro>
+      </div>
+
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Salvar</button>
+  <button class="btn" (click)="resetForm()">Cancelar</button>
+
+  <app-form-debug [form]="formulario"></app-form-debug>
+</form>
+
+
+
+
