@@ -33,6 +33,10 @@ public class DatabaseFacade {
 		return nDAO.listAll();
 	}
 	
+	public Nutricionista getNutricionistaById(Long id) throws HibernateException, ClassNotFoundException, SQLException {
+		return nDAO.get(id);
+	}
+	
 	public void deleteNutricionista(Nutricionista n) throws HibernateException, ClassNotFoundException, SQLException {
 		nDAO.delete(n);
 	}

@@ -95,7 +95,7 @@ public abstract class GenericDAO<T, PK extends Serializable> implements Interfac
 
 
 	@SuppressWarnings("unchecked")
-	public T get(PK key) throws HibernateException {
+	public T get(PK key) throws HibernateException, SQLException, ClassNotFoundException {
 
 		Session sessao = getSession();
 		sessao.beginTransaction();
