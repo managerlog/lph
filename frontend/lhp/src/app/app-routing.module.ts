@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: 'nutricionista', component: NutricionistaComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'nutricionista' },
+  { path: '', pathMatch: 'full', redirectTo: 'index' },
   {
     path: '',
     children: []
