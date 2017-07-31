@@ -1,32 +1,45 @@
-
 <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
-  <div class="form-group" [ngClass]="aplicarCssErro('nome')">
+  <div formGroupName="dados">
 
-    <div class="col-sm-12">
-      <label class="control-label" for="nome">Nome</label>
+    <div class="form-group">
+
+      <div class="col-sm-6" [ngClass]="aplicarCssErro('dados.nome')">
+        <label class="control-label" for="nome">Nome</label>
+        <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome">
+
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('dados.nome')" msgErro="Nome é Obrigratório">
+        </app-campo-control-erro>
+      </div>
+
+      <div class="col-sm-6" [ngClass]="aplicarCssErro('dados.crn')">
+        <label class="control-label" for="crn">CRN</label>
+        <input type="number" class="form-control" formControlName="crn" id="crn" placeholder="CRN">
+
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('dados.crn')" msgErro="CRN é Obrigratório">
+        </app-campo-control-erro>
+      </div>
+
     </div>
 
-    <div class="col-sm-12">
-      <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome">
+     <div class="form-group">
 
-      <app-campo-control-erro [mostrarErro]="verifcarValidTouched('nome')" msgErro="Nome é Obrigratório">
-      </app-campo-control-erro>
-    </div>
+      <div class="col-sm-6" [ngClass]="aplicarCssErro('dados.email')">
+        <label class="control-label" for="email">Email</label>
+        <input type="email" class="form-control" formControlName="email" id="email" placeholder="nome@email.com">
 
-  </div>
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('dados.email')" msgErro="Email é Obrigratório">
+        </app-campo-control-erro>
+      </div>
 
-  <div class="form-group" [ngClass]="aplicarCssErro('crn')">
+      <div class="col-sm-6" [ngClass]="aplicarCssErro('dados.senha')">
+        <label class="control-label" for="senha">Senha</label>
+        <input type="password" class="form-control" formControlName="senha" id="senha">
 
-    <div class="col-sm-12">
-      <label class="control-label" for="crn">CRN</label>
-    </div>
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('dados.senha')" msgErro="Senha é Obrigratório">
+        </app-campo-control-erro>
+      </div>
 
-    <div class="col-sm-12">
-      <input type="number" class="form-control" formControlName="crn" id="crn" placeholder="CRN">
-
-      <app-campo-control-erro [mostrarErro]="verifcarValidTouched('crn')" msgErro="CRN é Obrigratório">
-      </app-campo-control-erro>
     </div>
 
   </div>
@@ -109,7 +122,3 @@
 
   <app-form-debug [form]="formulario"></app-form-debug>
 </form>
-
-
-
-
