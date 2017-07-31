@@ -7,11 +7,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "nutricionista")
-public class Nutricionista implements Serializable{
+public class Nutricionista implements Serializable {
 
 	/**
 	 * author Alex J Costa
@@ -28,8 +30,11 @@ public class Nutricionista implements Serializable{
 	@Column
 	private String crn;
 	
-//@ManyToOne
+	@ManyToOne
 	private Endereco endereco;
+	
+	@ManyToOne
+	private Credencial credencial;
 
 	public String getNome() {
 		return nome;
@@ -57,6 +62,14 @@ public class Nutricionista implements Serializable{
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
+	}
+
+	public Credencial getCredencial() {
+		return credencial;
+	}
+
+	public void setCredencial(Credencial credencial) {
+		this.credencial = credencial;
 	}
 	
 }

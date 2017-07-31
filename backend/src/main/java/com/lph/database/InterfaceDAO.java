@@ -50,8 +50,10 @@ public interface InterfaceDAO<T, PK extends Serializable> {
 	 * @param primary key of object
 	 * @return object
 	 * @throws HibernateException
+	 * @throws ClassNotFoundException 
+	 * @throws SQLException 
 	 */
-	 T get(final PK primaryKey) throws HibernateException;
+	 T get(final PK primaryKey) throws HibernateException, SQLException, ClassNotFoundException;
 
 	/**
 	 * List all objects of data base
