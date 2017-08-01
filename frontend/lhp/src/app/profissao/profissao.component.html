@@ -1,0 +1,50 @@
+<div>
+  <h1>Profissão</h1>
+  <hr/>
+  <form class="form-horizontal" [formGroup]="formularioDeProfissao" (ngSubmit)="onSubmit()" style="width: 95%;">
+
+    <div class="form-group">
+      <div class="col-sm-12" [ngClass]="aplicarCssErro('nome')">
+        <label class="control-label" for="nome">Nome</label>
+        <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome">
+
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('nome')" msgErro="Nome é Obrigratório">
+        </app-campo-control-erro>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <button class="btn" (click)="resetForm()">Cancelar</button>
+
+    <!--<app-form-debug [form]="formularioDeProfissao"></app-form-debug>-->
+  </form>
+</div>
+
+<div>
+  <br>
+  <h2>Profissões Cadastradas</h2>
+  <hr/>
+  <br>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover" style="width: 95%;">
+      <thead>
+        <tr>
+          <th class="col-sm-1">ID</th>
+          <th class="col-sm-11">Profissão</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>nome</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>nome</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>nome</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
