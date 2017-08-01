@@ -1,62 +1,100 @@
-<div>
-    <nav class="navbar navbar-inverse sidebar" role="navigation">
-    <div class="container-fluid">
-    	<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-			<a class="navbar-brand  toggle-btn" href="#">Brand <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
+<body>
+
+	<aside class="sidebar-left-collapse">
+
+		<a href="#" class="company-logo">Logo</a>
+
+		<div class="sidebar-links">
+
+			<div class="link-blue">
+
+				<a href="#">
+					<i class="fa fa-folder-o" aria-hidden="true"></i>Agenda
+				</a>
+
+				<ul class="sub-links">
+					<li><a href="#">Compromissos</a></li>
+				</ul>
+
+      </div>
+      
+      <div class="link-orange">
+
+				<a href="#">
+					<i class="fa fa-bars"></i>Cadastros
+				</a>
+
+				<ul class="sub-links">  
+          <li><a href="#">Profissão</a></li>
+          <li><a href="#">Receita</a></li>
+          <li><a href="#">Nível Socioeconômico</a></li>
+				</ul>
+
+			</div>
+
+			<div class="link-red">
+
+				<a href="#">
+					<i class="fa fa-user fa-fw"></i>Pacientes
+				</a>
+
+				<ul class="sub-links">
+					<li><a href="#">Acompanhamento</a></li>
+				</ul>
+
+			</div>
+
+			<div class="link-yellow">
+
+				<a href="#">
+					<i class="fa fa-book fa-fw"></i>Exames
+				</a>
+
+				<ul class="sub-links">
+					<li><a href="#">Avaliação laborátorial</a></li>
+          <li><a href="#">Anamnese</a></li>
+          <li><a href="#">Antropometria</a></li>
+				</ul>
+
+			</div>
+
+			<div class="link-green">
+
+				<a href="#">
+          <i class="fa fa-cog"></i>Conta
+				</a>
+
+				<ul class="sub-links">
+					<li><a href="#" routerLink="/nutricionista">Nutricionista</a></li>
+				</ul>
+
+			</div>
+
 		</div>
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li >
-          <a routerLink="/nutricionista" href="#">Nutricionista<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
-        </li>
-				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">Messages<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-cog"></span></a>
-					<ul class="dropdown-menu forAnimate" role="menu">
-						<li><a href="#">Action</a></li>
-						<li><a href="#">Another action</a></li>
-						<li><a href="#">Something else here</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Separated link</a></li>
-						<li class="divider"></li>
-						<li><a href="#">One more separated link</a></li>
-					</ul>
-				</li>
-			</ul>
-		</div>
+
+	</aside>
+
+	<div class="main-content">
+    <router-outlet></router-outlet>
 	</div>
-</nav>
-</div>
-<div class="col-xs-4">
-  <div class="container">
-    <div class="row">
-        <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
 
+		$(function () {
+
+			var links = $('.sidebar-links > div');
+
+			links.on('click', function () {
+
+				links.removeClass('selected');
+				$(this).addClass('selected');
+
+			});
+		});
+
+	</script>
+
+</body>

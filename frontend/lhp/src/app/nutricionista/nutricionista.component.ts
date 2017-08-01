@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { EstadoBr } from './../shared/models/estado-br';
-import { DropdownService } from './../shared/services/dropdown.service';
+import { Component, OnInit } from "@angular/core";
+import { EstadoBr } from "./../shared/models/estado-br";
+import { DropdownService } from "./../shared/services/dropdown.service";
 import { Http } from "@angular/http";
 import {
   FormGroup,
@@ -8,35 +8,41 @@ import {
   FormBuilder,
   Validators
 } from "@angular/forms";
-import 'rxjs/add/operator/map';
+import "rxjs/add/operator/map";
 
 @Component({
-  selector: 'app-nutricionista',
-  templateUrl: './nutricionista.component.html',
-  styleUrls: ['./nutricionista.component.css']
+  selector: "app-nutricionista",
+  templateUrl: "./nutricionista.component.html",
+  styleUrls: ["./nutricionista.component.css"]
 })
 export class NutricionistaComponent implements OnInit {
-
   formulario: FormGroup;
   estado: EstadoBr[];
 
   constructor(
     private formBuilder: FormBuilder,
     private http: Http,
-    private dropDownService: DropdownService) {}
+    private dropDownService: DropdownService
+  ) {}
 
   ngOnInit() {
-
-    this.dropDownService.getEstadosBr()
-    .subscribe(dados => {this.estado = dados; console.log(dados); });
+    this.dropDownService.getEstadosBr().subscribe(dados => {
+      this.estado = dados;
+      console.log(dados);
+    });
     /*this.formulario = new FormGroup ({
       nome: new FormControl(null),
       crn: new FormControl(null)
     });*/
 
     this.formulario = this.formBuilder.group({
-      nome: [null, Validators.required],
-      crn: [null, Validators.required],
+
+      dados: this.formBuilder.group({
+        nome: [null, Validators.required],
+        crn: [null, Validators.required],
+        email: [null, Validators.required],
+        senha: [null, Validators.required]
+      }),
 
       endereco: this.formBuilder.group({
         cep: [null, Validators.required],
@@ -55,14 +61,17 @@ export class NutricionistaComponent implements OnInit {
 
     if (this.formulario.valid) {
       this.http
-        .post("https://httpbin.org/post", JSON.stringify(this.formulario.value))
+        .post(
+          "http://192.168.0.28:8080/lph/rest/nutricionistas/salvar/",
+          this.formulario.value
+        )
         .map(res => res)
         .subscribe(
           dados => {
             console.log(dados);
 
             // Reseta o formulário depois do response
-            this.resetForm();
+            //this.resetForm();
           },
           (error: any) => alert("erro")
         );
@@ -149,5 +158,4 @@ export class NutricionistaComponent implements OnInit {
 
     //console.log(formulario);
   }
-
 }
