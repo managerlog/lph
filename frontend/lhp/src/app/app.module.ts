@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NutricionistaModule } from './nutricionista/nutricionista.module';
-
-
+import { ProfissaoModule } from './profissao/profissao.module';
+import { NivelSocioeconomicoModule } from './nivel-socioeconomico/nivel-socioeconomico.module';
 
 
 @NgModule({
@@ -18,7 +18,9 @@ import { NutricionistaModule } from './nutricionista/nutricionista.module';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    NutricionistaModule
+    NutricionistaModule,
+    ProfissaoModule,
+    NivelSocioeconomicoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

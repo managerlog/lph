@@ -3,43 +3,43 @@
   <hr/>
   <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()" style="width: 95%;">
 
-    <div formGroupName="dados">
+    <div class="form-group">
 
-      <div class="form-group">
+      <div class="col-sm-6" [ngClass]="aplicarCssErro('nome')">
+        <label class="control-label" for="nome">Nome</label>
+        <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome">
 
-        <div class="col-sm-6" [ngClass]="aplicarCssErro('dados.nome')">
-          <label class="control-label" for="nome">Nome</label>
-          <input type="text" class="form-control" formControlName="nome" id="nome" placeholder="Nome">
-
-          <app-campo-control-erro [mostrarErro]="verifcarValidTouched('dados.nome')" msgErro="Nome é Obrigratório">
-          </app-campo-control-erro>
-        </div>
-
-        <div class="col-sm-6" [ngClass]="aplicarCssErro('dados.crn')">
-          <label class="control-label" for="crn">CRN</label>
-          <input type="number" class="form-control" formControlName="crn" id="crn" placeholder="CRN">
-
-          <app-campo-control-erro [mostrarErro]="verifcarValidTouched('dados.crn')" msgErro="CRN é Obrigratório">
-          </app-campo-control-erro>
-        </div>
-
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('nome')" msgErro="Nome é Obrigratório">
+        </app-campo-control-erro>
       </div>
 
+      <div class="col-sm-6" [ngClass]="aplicarCssErro('crn')">
+        <label class="control-label" for="crn">CRN</label>
+        <input type="number" class="form-control" formControlName="crn" id="crn" placeholder="CRN">
+
+        <app-campo-control-erro [mostrarErro]="verifcarValidTouched('crn')" msgErro="CRN é Obrigratório">
+        </app-campo-control-erro>
+      </div>
+
+    </div>
+
+    <div formGroupName="credenciais">
+
       <div class="form-group">
 
-        <div class="col-sm-6" [ngClass]="aplicarCssErro('dados.email')">
+        <div class="col-sm-6" [ngClass]="aplicarCssErro('credenciais.email')">
           <label class="control-label" for="email">Email</label>
           <input type="email" class="form-control" formControlName="email" id="email" placeholder="nome@email.com">
 
-          <app-campo-control-erro [mostrarErro]="verifcarValidTouched('dados.email')" msgErro="Email é Obrigratório">
+          <app-campo-control-erro [mostrarErro]="verifcarValidTouched('credenciais.email')" msgErro="Email é Obrigratório">
           </app-campo-control-erro>
         </div>
 
-        <div class="col-sm-6" [ngClass]="aplicarCssErro('dados.senha')">
+        <div class="col-sm-6" [ngClass]="aplicarCssErro('credenciais.senha')">
           <label class="control-label" for="senha">Senha</label>
           <input type="password" class="form-control" formControlName="senha" id="senha">
 
-          <app-campo-control-erro [mostrarErro]="verifcarValidTouched('dados.senha')" msgErro="Senha é Obrigratório">
+          <app-campo-control-erro [mostrarErro]="verifcarValidTouched('credenciais.senha')" msgErro="Senha é Obrigratório">
           </app-campo-control-erro>
         </div>
 
@@ -53,12 +53,11 @@
 
         <div class="col-md-3" [ngClass]="aplicarCssErro('endereco.cep')">
           <label for="cep" class="control-label">CEP</label>
-          <input type="text" class="form-control" id="cep" formControlName="cep" (blur)="consultarCEP()">
+          <input type="text" class="form-control" id="cep" placeholder="10000000" formControlName="cep" (blur)="consultarCEP()">
 
           <app-campo-control-erro [mostrarErro]="verifcarValidTouched('endereco.cep')" msgErro="CEP é Obrigratório">
           </app-campo-control-erro>
         </div>
-
 
         <div class="col-md-3" [ngClass]="aplicarCssErro('endereco.numero')">
           <label for="numero" class="control-label">Número</label>
@@ -100,7 +99,6 @@
           </app-campo-control-erro>
         </div>
 
-
         <div class="col-md-4" [ngClass]="aplicarCssErro('endereco.cidade')">
           <label for="cidade" class="control-label">Cidade</label>
           <input type="text" class="form-control" id="cidade" formControlName="cidade">
@@ -123,6 +121,6 @@
     <button type="submit" class="btn btn-primary">Salvar</button>
     <button class="btn" (click)="resetForm()">Cancelar</button>
 
-   <!-- <app-form-debug [form]="formulario"></app-form-debug> -->
+    <app-form-debug [form]="formulario"></app-form-debug>
   </form>
 </div>
