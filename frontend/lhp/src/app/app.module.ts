@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 import { NutricionistaModule } from './nutricionista/nutricionista.module';
 import { ProfissaoModule } from './profissao/profissao.module';
 import { NivelSocioeconomicoModule } from './nivel-socioeconomico/nivel-socioeconomico.module';
-
+import { PacienteModule } from './paciente/paciente.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { NivelSocioeconomicoModule } from './nivel-socioeconomico/nivel-socioeco
     AppRoutingModule,
     NutricionistaModule,
     ProfissaoModule,
-    NivelSocioeconomicoModule
+    NivelSocioeconomicoModule,
+    PacienteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
