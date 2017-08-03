@@ -25,7 +25,8 @@
         "../node_modules/menu-lateral/sidebar-collapse.css",
         "../node_modules/menu-lateral/css/font-awesome.css"
       ],
-      "scripts": ["../node_modules/bootstrap/dist/js/bootstrap.min.js","../node_modules/menu-lateral/menu_.js"],
+      "scripts": ["../node_modules/bootstrap/dist/js/bootstrap.min.js","../node_modules/menu-lateral/menu_.js"
+        ,"../node_modules/paciente-modules/application.js"],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
