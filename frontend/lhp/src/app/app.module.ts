@@ -8,6 +8,8 @@ import { NutricionistaModule } from './nutricionista/nutricionista.module';
 import { ProfissaoModule } from './profissao/profissao.module';
 import { NivelSocioeconomicoModule } from './nivel-socioeconomico/nivel-socioeconomico.module';
 import { PacienteModule } from './paciente/paciente.module';
+import { AntropometriaModule } from './antropometria/antropometria.module';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { PacienteModule } from './paciente/paciente.module';
     NutricionistaModule,
     ProfissaoModule,
     NivelSocioeconomicoModule,
-    PacienteModule
+    PacienteModule,
+    AntropometriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
