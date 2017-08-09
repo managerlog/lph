@@ -1,3 +1,4 @@
+import { AntropometriaComponent } from './antropometria/antropometria.component';
 import { NutricionistaComponent } from './nutricionista/nutricionista.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'profissao', component: ProfissaoComponent},
   { path: 'nivel-socioeconomico', component: NivelSocioeconomicoComponent},
   { path: 'paciente', component: PacienteComponent},
+  { path: 'antropometria', component: AntropometriaComponent},
   { path: '', pathMatch: 'full', redirectTo: 'app' },
   {
     path: '',
