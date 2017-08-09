@@ -9,11 +9,12 @@ import { ProfissaoModule } from './profissao/profissao.module';
 import { NivelSocioeconomicoModule } from './nivel-socioeconomico/nivel-socioeconomico.module';
 import { PacienteModule } from './paciente/paciente.module';
 import { AntropometriaModule } from './antropometria/antropometria.module';
+import { AgendaModule } from './agenda/agenda.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,8 @@ import { AntropometriaModule } from './antropometria/antropometria.module';
     ProfissaoModule,
     NivelSocioeconomicoModule,
     PacienteModule,
-    AntropometriaModule
+    AntropometriaModule,
+    AgendaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
