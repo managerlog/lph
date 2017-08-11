@@ -6,6 +6,7 @@ import { ProfissaoComponent } from './profissao/profissao.component';
 import { NivelSocioeconomicoComponent } from './nivel-socioeconomico/nivel-socioeconomico.component';
 import { PacienteComponent } from './paciente/paciente.component';
 import { AgendaComponent } from './agenda/agenda.component';
+import { AnamneseComponent } from './anamnese/anamnese.component';
 import { Component } from '@angular/core';
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'paciente', component: PacienteComponent},
   { path: 'antropometria', component: AntropometriaComponent},
   { path: 'agenda', component: AgendaComponent},
+  { path: 'anamnese', component: AnamneseComponent},
   { path: '', pathMatch: 'full', redirectTo: 'app' },
   {
     path: '',

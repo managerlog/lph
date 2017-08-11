@@ -1,0 +1,203 @@
+<div>
+  <h1>Anamnese</h1>
+  <hr/>
+  <form class="form-horizontal" [formGroup]="formularioDeAnamnese" style="width: 95%;">
+
+    <div class="form-group">
+      <div class="col-sm-2">
+        <label class="control-label" for="data">Data</label>
+        <input class="form-control" type="date" value="2017-08-07" id="example-date-input">
+      </div>
+
+      <div class="col-sm-10">
+        <label class="control-label" for="anotacao">Motivo</label>
+        <textarea class="form-control" id="anotacao" rows="2"></textarea>
+      </div>
+    </div>
+
+    <br>
+    <h3>História Mórbida Pregressa e Atual do Paciente</h3>
+    <hr>
+
+    <div class="form-group">
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+        <input type="checkbox" id="dm" value="dm"> DM
+      </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="has" value="has"> HAS
+        </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="gastrite" value="gastrite"> GASTRITE
+        </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="anemia" value="anemia"> ANEMIA
+        </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="avc/ave" value="avc/ave"> AVC/AVE
+        </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="iam" value="iam"> IAM
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+        <input type="checkbox" id="obesidade" value="obesidade"> OBESIDADE
+      </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="cancer" value="cancer"> CÂNCER
+        </label>
+      </div>
+
+
+      <div class="input-group col-sm-6">
+        <span class="input-group-addon" id="basic-addon1">OUTRAS</span>
+        <input type="text" class="form-control">
+      </div>
+    </div>
+
+    <br>
+    <h3>Medicamentos / Suplementos em uso</h3>
+    <hr>
+
+
+    <div class="form-group">
+
+      <div class="col-sm-2">
+       <label class="control-label"> MEDICAMENTOS
+      </label>
+      </div>
+
+      <div class="col-sm-1">
+       <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> SIM
+      </label>
+      </div>
+
+      <div class="col-sm-1">
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> NÃO
+        </label>
+      </div>
+
+      <div class="input-group col-sm-6">
+        <span class="input-group-addon" id="basic-addon1">ESPECIFICAR</span>
+          <input type="text" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+
+      <div class="col-sm-2">
+       <label class="control-label"> SUPLEMENTOS
+      </label>
+      </div>
+
+      <div class="col-sm-1">
+       <label class="radio-inline">
+        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> SIM
+      </label>
+      </div>
+
+      <div class="col-sm-1">
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> NÃO
+        </label>
+      </div>
+
+      <div class="input-group col-sm-6">
+        <span class="input-group-addon" id="basic-addon1">ESPECIFICAR</span>
+          <input type="text" class="form-control">
+      </div>
+    </div>
+
+    <br>
+    <h3>Distúrbios Gastrintestinais</h3>
+    <hr>
+
+    <div class="form-group">
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+        <input type="checkbox" id="disfagia" value="disfagia"> DISFAGIA
+      </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="odinofagia" value="odinofagia"> ODINOFAGIA
+        </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="dispepsia" value="dispepsia"> DISPEPSIA
+        </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="pirose" value="pirose"> PIROSE
+        </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="refluxo" value="refluxo"> REFLUXO
+        </label>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="sii" value="sii"> SII
+        </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+        <input type="checkbox" id="nausea" value="nausea"> NÁUSEA
+      </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="vomito" value="vomito"> VÔMITO
+        </label>
+      </div>
+
+      <div class="col-sm-2">
+        <label class="checkbox-inline">
+          <input type="checkbox" id="flatulencia" value="flatulencia"> FLATULÊNCIA
+        </label>
+      </div>
+    </div>
+
+  </form>
+</div>
